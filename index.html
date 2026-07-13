@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station Météo Dynamique</title>
+    <!-- Google Fonts (Inter) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome (icônes) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Notre CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1><i class="fas fa-cloud-sun"></i> Ma Station Météo</h1>
+    </header>
+
+    <main>
+        <!-- Section 1 : Formulaire de recherche -->
+        <section id="search-section" aria-labelledby="search-heading">
+            <h2 id="search-heading">Rechercher une ville</h2>
+            <form id="weather-form">
+                <div class="form-group">
+                    <label for="city-input">Nom de la ville :</label>
+                    <input type="text" id="city-input" name="city" placeholder="ex: Paris, Londres, Port-au-Prince"
+                        required aria-describedby="error-message">
+                    <p id="error-message" class="error-message" role="alert"></p>
+                </div>
+                <button type="submit">
+                    <i class="fas fa-search"></i> Voir la météo
+                </button>
+            </form>
+        </section>
+
+        <!-- Section 2 : Zone d'affichage des résultats -->
+        <section id="result-section" aria-labelledby="result-heading">
+            <h2 id="result-heading">Résultats</h2>
+
+            <!-- Indicateur de chargement -->
+            <div id="loading-indicator" class="loading-indicator hidden" role="status">
+                <span class="spinner"></span>
+                <p><i class="fas fa-spinner fa-pulse"></i> Chargement des données météo...</p>
+            </div>
+
+            <!-- Suggestions -->
+            <div id="suggestions-container" class="suggestions-container hidden" role="listbox">
+                <p class="suggestions-title">Plusieurs villes correspondent :</p>
+                <ul id="suggestions-list"></ul>
+            </div>
+
+            <!-- Carte météo -->
+            <div id="weather-card" class="weather-card hidden">
+                <!-- Le contenu sera injecté dynamiquement -->
+            </div>
+
+            <!-- Message d'erreur API -->
+            <div id="api-error" class="api-error hidden" role="alert">
+                <i class="fas fa-exclamation-circle"></i>
+                <span id="api-error-text"></span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Projet réalisé pour le cours LOG3500</p>
+    </footer>
+
+    <!-- Notre JavaScript -->
+    <script src="js/app.js" defer></script>
+</body>
+
+</html>
